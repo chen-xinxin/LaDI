@@ -2,63 +2,7 @@
 
 ### Latent Diffusion Textual-Inversion Enhanced Virtual Try-On
 
-[**Davide Morelli**](https://scholar.google.com/citations?user=UJ4D3rYAAAAJ&hl=en)**\***,
-[**Alberto Baldrati**](https://scholar.google.com/citations?hl=en&user=I1jaZecAAAAJ)**\***,
-[**Giuseppe Cartella**](https://scholar.google.com/citations?hl=en&user=0sJ4VCcAAAAJ),
-[**Marcella Cornia**](https://scholar.google.com/citations?hl=en&user=DzgmSJEAAAAJ),
-[**Marco Bertini**](https://scholar.google.com/citations?user=SBm9ZpYAAAAJ&hl=en),
-[**Rita Cucchiara**](https://scholar.google.com/citations?hl=en&user=OM3sZEoAAAAJ)
-
-**\*** Equal contribution.
-
-[![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2305.13501)
-[![GitHub Stars](https://img.shields.io/github/stars/miccunifi/ladi-vton?style=social)](https://github.com/miccunifi/ladi-vton)
-
-🔥🔥 **[05/09/2023] Release of the training code**
-
-This is the **official repository** for the [**paper**](https://arxiv.org/abs/2305.13501) "*LaDI-VTON: Latent Diffusion
-Textual-Inversion Enhanced Virtual Try-On*".
-
-## Overview
-
-![](assets/teaser.png "Overview of our approach")
-
-
-> **Abstract**: <br>
-> The rapidly evolving fields of e-commerce and metaverse continue to seek innovative approaches to enhance the consumer
-> experience. At the same time, recent advancements in the development of diffusion models have enabled generative
-> networks to create remarkably realistic images. In this context, image-based virtual try-on, which consists in
-> generating a novel image of a target model wearing a given in-shop garment, has yet to capitalize on the potential of
-> these powerful generative solutions. This work introduces LaDI-VTON, the first Latent Diffusion textual
-> Inversion-enhanced model for the Virtual Try-ON task. The proposed architecture relies on a latent diffusion model
-> extended with a novel additional autoencoder module that exploits learnable skip connections to enhance the generation
-> process preserving the model's characteristics. To effectively maintain the texture and details of the in-shop
-> garment,
-> we propose a textual inversion component that can map the visual features of the garment to the CLIP token embedding
-> space and thus generate a set of pseudo-word token embeddings capable of conditioning the generation process.
-> Experimental results on Dress Code and VITON-HD datasets demonstrate that our approach outperforms the competitors by
-> a consistent margin, achieving a significant milestone for the task
-
-## Citation
-
-If you make use of our work, please cite our paper:
-
-```bibtex
-@inproceedings{morelli2023ladi,
-  title={{LaDI-VTON: Latent Diffusion Textual-Inversion Enhanced Virtual Try-On}},
-  author={Morelli, Davide and Baldrati, Alberto and Cartella, Giuseppe and Cornia, Marcella and Bertini, Marco and Cucchiara, Rita},
-  booktitle={Proceedings of the ACM International Conference on Multimedia},
-  year={2023}
-}
-```
-
-<details>
-<summary><h2>Getting Started</h2></summary>
-
-We recommend using the [**Anaconda**](https://www.anaconda.com/) package manager to avoid dependency/reproducibility
-problems.
-For Linux systems, you can find a conda installation
-guide [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html).
+保存LaDI-VTON的复现
 
 ### Installation
 
