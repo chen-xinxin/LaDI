@@ -1,0 +1,21 @@
+跑vton-hd数据集：
+python src/inference.py --dataset vitonhd --vitonhd_dataroot data/VITON-HD --output_dir output1 --test_order paired --num_workers 0
+验证：
+python src/utils/val_metrics.py --gen_folder output1 --dataset vitonhd  --vitonhd_dataroot data/VITON-HD --test_order paired --workers 0
+
+跑dresscode数据集
+python src/inference.py --dataset dresscode --dresscode_dataroot data/DressCode --output_dir output2 --test_order paired --num_workers 0
+验证：
+python src/utils/val_metrics.py --gen_folder output2 --dataset dresscode  --dresscode_dataroot data/DressCode --test_order paired --workers 0
+
+
+
+python src/inference.py --dataset vitonhd --vitonhd_dataroot data/VITON-HD --output_dir output3 --test_order unpaired --num_workers 0
+python src/inference.py --dataset dresscode --dresscode_dataroot data/DressCode --output_dir output4 --test_order unpaired --num_workers 0
+
+跑出warped-cloths
+python src/train_tps.py --dataset vitonhd --vitonhd_dataroot data/VITON-HD --exp_name viton-hd
+python src/train_tps.py --dataset dresscode --dresscode_dataroot data/DressCode  --exp_name dresscode
+
+video experiment:
+python src/inference.py --dataset vitonhd --vitonhd_dataroot data/VITON-HD --output_dir video_output --test_order unpaired --num_workers 0

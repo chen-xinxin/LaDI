@@ -1,0 +1,30 @@
+训练tiktok:
+python src/train_tps.py --dataset vitonhd  --vitonhd_dataroot data/tiktok --checkpoints_dir tiktok_ckpt --exp_name tiktok
+python src/train_tps.py --dataset vitonhd  --vitonhd_dataroot data/tiktok --checkpoints_dir tiktok_ckpt --exp_name tiktok --only_extraction
+
+
+python src/train_emasc.py --dataset vitonhd --vitonhd_dataroot data/tiktok --output_dir tiktok_emasc
+python src/train_emasc.py --dataset vitonhd --vitonhd_dataroot data/tiktok --output_dir tiktok_emasc --resume_from_checkpoint latest
+
+#### ada不单独训,跳过
+python src/train_inversion_adapter.py --dataset vitonhd --vitonhd_dataroot data/data/192_256 --output_dir vvt_ada --gradient_checkpointing --enable_xformers_memory_efficient_attention
+python src/train_inversion_adapter.py --dataset vitonhd --vitonhd_dataroot data/data/192_256 --output_dir vvt_ada --gradient_checkpointing --enable_xformers_memory_efficient_attention --resume_from_checkpoint latest
+
+
+python src/train_vto.py --dataset vitonhd --vitonhd_dataroot data/tiktok --output_dir tiktok_vto --gradient_checkpointing --enable_xformers_memory_efficient_attention --train_inversion_adapter
+python src/train_vto.py --dataset vitonhd --vitonhd_dataroot data/tiktok --output_dir tiktok_vto --gradient_checkpointing --enable_xformers_memory_efficient_attention --train_inversion_adapter --resume_from_checkpoint latest
+
+inference:
+
+python src/eval.py --dataset vitonhd --vitonhd_dataroot data/tiktok --output_dir tiktok_output --test_order unpaired  --unet_dir tiktok_vto --inversion_adapter_dir tiktok_vto --emasc_dir tiktok_emasc --enable_xformers_memory_efficient_attention --save_name tiktok
+对比样例：
+python src/eval.py --dataset vitonhd --vitonhd_dataroot data/tiktok --output_dir tiktok-ladi-example --test_order unpaired  --unet_dir tiktok_vto --inversion_adapter_dir tiktok_vto --emasc_dir tiktok_emasc --enable_xformers_memory_efficient_attention --save_name tiktok
+
+
+mv test/agnostic-v3.2/test_frames/* test-0/agnostic-v3.2/test_frames/
+mv test/image/test_frames/* test-0/image/test_frames/
+mv test/image-densepose/test_frames/* test-0/image-densepose/test_frames/
+mv test/image-parse-v3/test_frames/* test-0/image-parse-v3/test_frames/
+mv test/image-parse-agnostic-v3.2/test_frames/* test-0/image-parse-agnostic-v3.2/test_frames/
+mv test/openpose_img/test_frames/* test-0/openpose_img/test_frames/
+mv test/openpose_json/test_frames/* test-0/openpose_json/test_frames/
